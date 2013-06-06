@@ -1,7 +1,8 @@
 require "rack"
 
-infinity = Proc.new {|env| [200, {"content-type" => "text/html"}, env.inspect]}
+infinity = Proc.new {|env| [200, {"content-type" => "text/html"}, [env.inspect]]}
 builder = Rack::Builder.new do
+  use Rack::CommonLogger
   run infinity
 end
 

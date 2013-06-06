@@ -14,7 +14,7 @@ require "rack"
 # Rack::Handler::Thin.run Proc.new{|env| [200, {"content-type" => "text/html"}, "Hello Rack, I'm a Proc"]}, :Port => 9292
 
 def application(env)
-  [200, {"content-type" => "text/html"}, "Hello Rack, I'm a Proc"]
+  [200, {"content-type" => "text/html"}, "Hello Rack, I'm a method"]
 end
 
 Rack::Handler::Thin.run method(:application), :Port => 9292
